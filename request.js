@@ -24,6 +24,7 @@ export default (opt) => {
             url: baseURL + url,
             method,
             data,
+            dataType: 'json',
             header: Object.assign({}, headers, {
                 Authorization: apiToken ? `Bearer ${apiToken}` : undefined,
             }),
