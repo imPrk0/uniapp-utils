@@ -16,7 +16,7 @@ export default (opt) => {
         url,
         method,
         data,
-        header
+        headers
     } = opt;
     let apiToken = uni.getStorageSync('api_token');
     return new Promise((resolve, reject) => {
@@ -24,10 +24,9 @@ export default (opt) => {
             url: baseURL + url,
             method,
             data,
-            header: {
+            header: Object.assign({}, headers, {
                 Authorization: apiToken ? `Bearer ${apiToken}` : undefined,
-                ...header
-            },
+            }),
             success: res => {
                 // Request interceptor
                 resolve(res.data);
