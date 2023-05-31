@@ -13,7 +13,7 @@ export default (opt) => {
         mask: true
     });
     const {
-        uri,
+        url,
         method,
         data,
         header
@@ -21,7 +21,7 @@ export default (opt) => {
     let apiToken = uni.getStorageSync('api_token');
     return new Promise((resolve, reject) => {
         uni.request({
-            url: baseURL + uri,
+            url: baseURL + url,
             method,
             data,
             header: {
