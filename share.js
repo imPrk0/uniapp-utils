@@ -46,7 +46,7 @@ export default {
             let result = [],
                 value = '';
             for (var key in obj) {
-                value = data[key];
+                value = obj[key];
                 if (Array == value.constructor) value.forEach(e => {
                     result.push(`${key}=${value}`);
                 });
