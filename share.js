@@ -19,10 +19,10 @@ export default {
     },
     onShareAppMessage(res) {
         // res: {from: 'menu', target: undefined}
-        let that = this;
-        let route = `/${that.$scope.route}`;
-        let opt = that.$scope.options;
-        let optStr = that.objToQuery(opt);
+        let that = this,
+            route = `/${that.$scope.route}`,
+            opt = that.$scope.options,
+            optStr = that.objToQuery(opt);
         return {
             title: APP_NAME,
             path: `${route}${'' !== optStr ? `?${optStr}` : ''}`,
@@ -30,10 +30,10 @@ export default {
         }
     },
     onShareTimeline() {
-        let that = this;
-        let route = `/${that.$scope.route}`;
-        let opt = that.$scope.options;
-        let optStr = that.objToQuery(opt);
+        let that = this,
+            route = `/${that.$scope.route}`,
+            opt = that.$scope.options,
+            optStr = that.objToQuery(opt);
         return {
             title: APP_NAME,
             path: `${route}${'' !== optStr ? `?${optStr}` : ''}`,
@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         objToQuery(obj) {
-            if (0 === Object.keys(opt).length) return '';
+            if (0 === Object.keys(obj).length) return '';
             let result = [],
                 value = '';
             for (var key in obj) {
