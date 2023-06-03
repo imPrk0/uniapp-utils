@@ -27,11 +27,18 @@ Vue.mixin(share);
 
 ### WXMP-Update
 
-`App.vue` (onLaunch)
+`App.vue`
 
 ``` js
 // #ifdef MP-WEIXIN
 import wxmpUpdate from '@/utils/wxmp-update';
+// #endif
+```
+
+`App.vue` (onLaunch)
+
+``` js
+// #ifdef MP-WEIXIN
 wxmpUpdate();
 // #endif
 ```
