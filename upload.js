@@ -15,18 +15,18 @@ export default (uri, filePath) => {
     let apiToken = uni.getStorageSync('api_token');
     return new Promise((resolve, reject) => {
         uni.uploadFile({
-			url: baseURL + uri,
-			filePath,
-			name: 'file',
-			success: res => {
+            url: baseURL + uri,
+            filePath,
+            name: 'file',
+            success: res => {
                 resolve(res.data);
             },
             fail: err => {
                 reject(err);
             },
             complete: () => {
-                if (opt.loading) uni.hideLoading();
+                uni.hideLoading();
             }
-		});
+        });
     })
 }
