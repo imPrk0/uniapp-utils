@@ -7,7 +7,7 @@ import {
     baseURL
 } from '@/env';
 
-export default (opt) => {
+export default opt => {
     if (opt.loading) uni.showLoading({
         title: '加载中',
         mask: true
@@ -18,6 +18,7 @@ export default (opt) => {
         data,
         headers
     } = opt;
+    // Request interceptor
     let apiToken = uni.getStorageSync('api_token');
     return new Promise((resolve, reject) => {
         uni.request({
@@ -29,7 +30,7 @@ export default (opt) => {
                 Authorization: apiToken ? `Bearer ${apiToken}` : undefined,
             }),
             success: res => {
-                // Request interceptor
+                // Response interceptor
                 resolve(res.data);
             },
             fail: err => {
@@ -37,6 +38,7 @@ export default (opt) => {
                 reject(err);
             },
             complete: () => {
+                // Response interceptor
                 if (opt.loading) uni.hideLoading();
             }
         });
