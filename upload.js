@@ -19,7 +19,7 @@ export default (uri, filePath) => {
             filePath,
             name: 'file',
             success: res => {
-                resolve(res.data);
+                resolve(JSON.parse(res.data));
             },
             fail: err => {
                 reject(err);
